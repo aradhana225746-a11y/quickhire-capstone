@@ -11,21 +11,10 @@ connectDB();
 
 const app = express();
 
-// Middleware
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  process.env.CLIENT_URL
-].filter(Boolean);
-
+// Enable CORS for all origins (reflects request origin)
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production' || process.env.VERCEL) {
-        return callback(null, true);
-      }
-      return callback(new Error('Blocked by CORS policy'));
-    },
+    origin: true,
     credentials: true
   })
 );
