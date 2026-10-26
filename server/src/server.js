@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 
@@ -32,15 +34,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
-app.get('/', (req, res) => {
-  res.status(200).json({
-    project: 'QuickHire Career Portal & Job Management System',
-    status: 'API running smoothly',
-    version: '1.0.0',
-    documentation: '/api/docs'
-  });
-});
-
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'UP', timestamp: new Date() });
 });
@@ -51,8 +44,6 @@ app.use('/api/jobs', require('./routes/jobRoutes'));
 app.use('/api/applications', require('./routes/applicationRoutes'));
 
 // Serve compiled React frontend in production (if built)
-const path = require('path');
-const fs = require('fs');
 const clientDistPath = path.join(__dirname, '../../client/dist');
 
 if (fs.existsSync(clientDistPath)) {
@@ -64,7 +55,14 @@ if (fs.existsSync(clientDistPath)) {
     res.sendFile(path.join(clientDistPath, 'index.html'));
   });
 } else {
-  // 404 handler for undefined routes when frontend is hosted separately
+  app.get('/', (req, res) => {
+    res.status(200).json({
+      project: 'QuickHire Career Portal & Job Management System',
+      status: 'API running smoothly',
+      version: '1.0.0'
+    });
+  });
+
   app.use('*', (req, res) => {
     res.status(404).json({
       success: false,
