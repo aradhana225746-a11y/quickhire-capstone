@@ -51,13 +51,28 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/jobs', require('./routes/jobRoutes'));
 app.use('/api/applications', require('./routes/applicationRoutes'));
 
-// 404 handler for undefined routes
-app.use('*', (req, res) => {
-  res.status(404).json({
-    success: false,
-    message: `API endpoint ${req.originalUrl} not found.`
+// Serve compiled React frontend in production (if built)
+const path = require('path');
+const fs = require('fs');
+const clientDistPath = path.join(__dirname, '../../client/dist');
+
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+  app.get('*', (req, res, next) => {
+    if (req.originalUrl.startsWith('/api')) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, 'index.html'));
   });
-});
+} else {
+  // 404 handler for undefined routes when frontend is hosted separately
+  app.use('*', (req, res) => {
+    res.status(404).json({
+      success: false,
+      message: `API endpoint ${req.originalUrl} not found.`
+    });
+  });
+}
 
 // Centralized Error Handling Middleware
 app.use(errorHandler);
