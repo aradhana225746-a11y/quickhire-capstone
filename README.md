@@ -5,36 +5,36 @@
 
 ---
 
-## 🚀 Overview
+##  Overview
 **QuickHire** is a modern, responsive full-stack career and placement management web platform built using the **MERN Stack** (MongoDB, Express.js, React.js, and Node.js). 
 
 It connects ambitious job seekers (candidates) with hiring organizations (recruiters) through an intuitive single-page interface, robust REST APIs, and role-based access control.
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 ### For Candidates (Job Seekers)
-- 🔍 **Dynamic Discovery:** Real-time keyword search (title, company, description) and faceted category filters.
-- 🎯 **Filter by Type:** Filter opportunities across Full-Time, Part-Time, Remote, and Internship roles.
-- 📄 **Single-Click Application:** Submit applications with phone, resume/portfolio link, and cover note.
-- 🚫 **Duplicate Prevention:** Database-enforced compound index prevents duplicate submissions for the same opening.
-- 📊 **"My Applications" Tracker:** Real-time visibility into hiring statuses (*Pending*, *Reviewing*, *Shortlisted*, *Rejected*) and employer notes.
+-  **Dynamic Discovery:** Real-time keyword search (title, company, description) and faceted category filters.
+-  **Filter by Type:** Filter opportunities across Full-Time, Part-Time, Remote, and Internship roles.
+-  **Single-Click Application:** Submit applications with phone, resume/portfolio link, and cover note.
+-  **Duplicate Prevention:** Database-enforced compound index prevents duplicate submissions for the same opening.
+-  **"My Applications" Tracker:** Real-time visibility into hiring statuses (*Pending*, *Reviewing*, *Shortlisted*, *Rejected*) and employer notes.
 
 ### For Recruiters & Placement Officers
-- 📝 **Vacancy Authoring:** Create, update, or remove job listings with customizable requirements, experience, and salary packages.
-- 📈 **Recruiter Dashboard:** Live metrics tracking total vacancies, incoming candidate applications, shortlisted talent, and pending reviews.
-- 👥 **Candidate Roster:** Inspect submitted applications, review candidate resume links, and update candidate hiring stages (*Shortlist*, *Review*, *Reject*) with private notes.
+-  **Vacancy Authoring:** Create, update, or remove job listings with customizable requirements, experience, and salary packages.
+-  **Recruiter Dashboard:** Live metrics tracking total vacancies, incoming candidate applications, shortlisted talent, and pending reviews.
+-  **Candidate Roster:** Inspect submitted applications, review candidate resume links, and update candidate hiring stages (*Shortlist*, *Review*, *Reject*) with private notes.
 
 ### System & Engineering Highlights
-- 🔐 **Stateless Authentication:** JSON Web Tokens (JWT) and salted password hashing with `bcryptjs`.
-- 🛡️ **Role Guards:** Strictly isolated recruiter and candidate permissions on both server middleware and React route guards.
-- 🎨 **4 Core Screen States:** Seamless handling of *Loading*, *Success*, *Empty*, and *Error* states with contextual retry triggers.
-- 📱 **Mobile-First Responsive Design:** Clean layout tested across mobile viewports, tablets, and wide screens.
+-  **Stateless Authentication:** JSON Web Tokens (JWT) and salted password hashing with `bcryptjs`.
+-  **Role Guards:** Strictly isolated recruiter and candidate permissions on both server middleware and React route guards.
+-  **4 Core Screen States:** Seamless handling of *Loading*, *Success*, *Empty*, and *Error* states with contextual retry triggers.
+-  **Mobile-First Responsive Design:** Clean layout tested across mobile viewports, tablets, and wide screens.
 
 ---
 
-## 🔑 Quick Demo Credentials for Evaluators
+##  Quick Demo Credentials for Evaluators
 
 For easy evaluation without manual sign-up:
 
@@ -59,7 +59,7 @@ For easy evaluation without manual sign-up:
 
 ---
 
-## 📁 Project Directory Structure
+##  Project Directory Structure
 
 ```text
 quickhire-capstone/
@@ -92,7 +92,7 @@ quickhire-capstone/
 
 ---
 
-## 💻 Local Setup & Installation
+##  Local Setup & Installation
 
 ### Prerequisites
 - Node.js (v18+)
@@ -174,7 +174,7 @@ Open **`http://localhost:5173`** in your browser!
 
 ---
 
-## 🌐 Free Cloud Deployment Instructions
+##  Free Cloud Deployment Instructions
 
 ### 1. MongoDB Database
 - Use [MongoDB Atlas](https://www.mongodb.com/atlas).
