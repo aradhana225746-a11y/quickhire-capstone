@@ -19,8 +19,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps, curl, postman) or matching allowed origins
-      if (!origin || allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production' || process.env.VERCEL) {
         return callback(null, true);
       }
       return callback(new Error('Blocked by CORS policy'));
@@ -78,6 +77,10 @@ if (fs.existsSync(clientDistPath)) {
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 QuickHire Server listening on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 QuickHire Server listening on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
+  });
+}
+
+module.exports = app;
